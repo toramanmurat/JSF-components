@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:f="http://java.sun.com/jsf/core" 
+      xmlns:h="http://java.sun.com/jsf/html">
+<h:head>
+
+	<h:outputStylesheet library="css" name="style.css"/>
+	<title>#{msgs.title}</title>
+</h:head>
+<h:body>
+	<h:form>
+		<h:commandButton action="#{exampleLocaleBean.changeLanguage('en')}" 
+		value="English" image="/resources/image/EN.png" />
+		<h:commandButton action="#{exampleLocaleBean.changeLanguage('tr')}" 
+		value="Turkish" image="/resources/image/TR.png" />
+	</h:form>
+	
+	<h:form>
+		<h1>#{msgs.enterPayment}</h1>
+		<h:panelGrid columns="3">
+			#{msgs.cardHolderName}
+			<h:inputText value="#{payment.cardHolderName}" id="cardHolderName" label="#{msgs.cardHolderName}"
+			required="true" />
+			<h:message for="cardHolderName" styleClass="red"/>
+			
+			#{msgs.amount}
+			<h:inputText value="#{payment.amount}" id="amount" label="#{msgs.amount}">
+				<f:convertNumber minFractionDigits="2" type="number"/>
+				<f:validateDoubleRange minimum="1" maximum="1500"/>
+			</h:inputText>
+			<h:message for="amount" styleClass="red"/>
+			
+			#{msgs.creditCard}
+			<h:inputText value="#{payment.creditCard}" id="creditCard" label="#{msgs.creditCard}" required="true">
+				<f:validateLength minimum="13" maximum="16"/>
+			</h:inputText>
+			<h:message for="creditCard" styleClass="red"/>
+			
+			#{msgs.cvv}
+			<h:inputText value="#{payment.cvv}" id="cvv" label="#{msgs.cvv}" required="true">
+				<f:validateRequired for="cvv" />
+			</h:inputText>
+			
+			<h:message for="cvv" styleClass="red"/>
+			
+			#{msgs.expirationDate}
+			<h:inputText value="#{payment.date}" id="date" label="#{msgs.expirationDate}" >
+				<f:convertDateTime pattern="MM/yyyy"/>
+			</h:inputText>
+			<h:message for="date" styleClass="red"/>
+		</h:panelGrid>
+		
+		<h:commandButton action="welcome" value="#{msgs.process}" />
+	
+	
+	</h:form>
+	
+	
+</h:body>
+</html>

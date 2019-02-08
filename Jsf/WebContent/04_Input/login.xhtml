@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:h="http://java.sun.com/jsf/html">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Insert title here</title>
+</head>
+<style>
+	
+	.myClass{
+		color:red;
+	}
+	
+</style>
+
+<script>
+	function callMe(){
+		alert("hello");
+		}
+</script>
+<h:body>
+	<h:form>
+		<table>
+			<tr>
+				<td>InputText</td>
+				<td><h:inputText value="#{inputBean.name}"/></td> 
+			</tr>
+			<tr>
+				<td>InputSecret</td>
+				<td><h:inputSecret value="{inputBean.name}" /></td> 
+			</tr>
+				<tr>
+				<td>ReadyOnly</td>
+				<td><h:inputText value="Read Only" readonly="true" /></td> 
+			</tr>
+			<tr>
+				<td>Disabled:</td>
+				<td><h:inputText value="Disabled" disabled="true"/></td>
+			</tr>
+			
+			<tr>
+				<td>Style:</td>
+				<td><h:inputText style="color:blue"/></td>
+			</tr>
+			
+			<tr>
+				<td>StyleClass:</td>
+				<td><h:inputText styleClass="myClass"/></td>
+			</tr>
+			
+			<tr>
+				<td>Call JS function:</td>
+				<td><h:inputText onblur="callMe()"/></td>
+			</tr>
+			
+			
+			<tr>
+				<td>InputTextArea</td>
+				<td><h:inputTextarea value="inputTextArea" cols="10" rows="5"/></td>
+			</tr>
+			
+			
+			
+			
+			
+		
+		</table>
+		
+	</h:form>
+</h:body>
+</html>

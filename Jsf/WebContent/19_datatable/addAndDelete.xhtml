@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+
+<h:outputStylesheet library="css" name="table.css"/>
+<title>Datatable Exapmle</title>
+</h:head>
+<h:body>
+	<h:form>
+		<h:dataTable id="datatable" value="#{datatablePersonDataBean.persons}" var="myPerson"
+			captionStyle="font-size:20px" styleClass="person-table"
+			headerClass="person-table-header"
+			rowClasses="person-table-oddRow,person-table-evenRow">
+			
+			<f:facet name="caption">Person List</f:facet>
+			
+			<h:column>
+				<f:facet name="header">Name</f:facet>
+				#{myPerson.name}
+			</h:column>
+			
+			<h:column>
+				<f:facet name="header">Surname</f:facet>
+				#{myPerson.surname}
+			</h:column>
+			
+			<h:column>
+				<f:facet name="header">Age</f:facet>
+				#{myPerson.age}
+			</h:column>	
+			
+			<h:column>
+				<f:facet name="header">Phone Number</f:facet>
+				#{myPerson.phoneNumber}
+			</h:column>
+			
+			<h:column>
+				<f:facet name="header">Delete</f:facet>
+				<h:commandLink action="#{datatablePersonDataBean.deletePerson(myPerson)}" value="Delete" />
+			</h:column>
+	
+		</h:dataTable>
+		
+		<h3>Add Person</h3>
+		<table id="myTable">
+			<tr>
+				<td>Name:</td>
+				<td><h:inputText id="name" value="#{datatablePersonDataBean.name}"/></td>
+			</tr>
+			
+			<tr>
+				<td>Surname:</td>
+				<td><h:inputText id="surname" value="#{datatablePersonDataBean.surname}"/></td>
+			</tr>
+		
+			<tr>
+				<td>Age:</td>
+				<td><h:inputText id="age" value="#{datatablePersonDataBean.age}"/></td>
+			</tr>
+			
+			<tr>
+				<td>Phone Number:</td>
+				<td><h:inputText id="phonenumber" value="#{datatablePersonDataBean.phoneNumber}"/></td>
+			</tr>
+			
+		</table>
+		
+		<p>
+			<h:commandButton action="#{datatablePersonDataBean.addPerson}" value="Add" />
+		</p>
+	
+	
+	
+	</h:form>
+</h:body>
+</html>

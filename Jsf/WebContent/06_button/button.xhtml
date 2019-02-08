@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Insert title here</title>
+</head>
+
+<body>
+	<h:form prependId="false">
+		<p>
+			<h:commandButton value="Page1" action="page1"/>
+		</p>
+		
+		<p>
+			<h:commandButton value="Page2" action="#{buttonBean.navigateToPage2()}"/>
+		</p>
+		
+		<p>
+			<h:commandButton value="Nothing Happens" action="page1" type="button"/>
+		</p>
+		
+		<p>
+			<h:commandButton value="Say Hello" onclick="alert('hello')"/>
+		</p>
+		
+		<p>
+			<h:commandButton image="/resources/image/TR.png" action="page1" />
+		</p>
+	
+		
+	</h:form>
+</body>
+</html>

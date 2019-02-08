@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Hello Ajax</title>
+</head>
+<h:body>
+	<h:form prependId="false">
+		<h3> Jsf Hello Ajax Example</h3>
+		
+		<table>
+			<tr>
+				<td>Name:</td>
+				<td><h:inputText value="#{helloAjaxBean.name}" id="nameId"/></td>
+			</tr>
+			<tr>
+				<td>SurName:</td>
+				<td><h:inputText value="#{helloAjaxBean.surname}" id="surnameId"/></td>
+			</tr>
+		</table>
+	
+		<p>
+			<h:commandButton value="Click">
+				<f:ajax execute="nameId" render="out "/>
+			</h:commandButton>
+		</p>
+		
+		<h3>
+			<h:outputText id="out" value="#{helloAjaxBean.sayWelcome}"/>
+		</h3>
+	
+	
+	</h:form>
+</h:body>
+</html>
